@@ -5,8 +5,7 @@
   |============================
 */
 @import url('./reset.css');
-@import url('./vite-promo.css');
-@import url('./header.css');
+@import url('./slimselect.css');
 
 :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
@@ -22,4 +21,82 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+}
+
+.container {
+  width: 90%;
+  margin: 10px auto;
+}
+
+.ss-main {
+  width: 50%;
+  margin-bottom: 20px;
+}
+
+.breed-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.breed-name {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #ff3d00;
+}
+
+.breed-img {
+  width: 40%;
+  border: 3px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+}
+
+.breed-img img {
+  overflow: hidden;
+  object-fit: cover;
+  width: 100%;
+}
+
+.desc {
+  width: 55%;
+}
+
+.label {
+  font-weight: 600;
+  font-size: 26px;
+  color: #ff6e40;
+}
+
+.desc-text {
+  margin-bottom: 16px;
+}
+
+.loader-text {
+  color: #ffab91;
+  display: none;
+  font-size: 22px;
+}
+
+.loader {
+  width: 20px;
+  height: 20px;
+  border-width: 3px;
+  border-style: dashed solid solid dotted;
+  border-color: #ffab91 #ff6e40 transparent #ff3d00;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+  margin-right: 5px;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
