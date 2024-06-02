@@ -27,6 +27,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   try {
+    loader.style.display = 'block';
+    
     const breeds = await fetchBreeds();
 
     breeds.forEach(breed => {
@@ -34,15 +36,20 @@ document.addEventListener('DOMContentLoaded', async () => {
       option.value = breed.id;
       option.textContent = breed.name;
       slimSelect.addOption(option);
+      
     });
+    breedSelect.classList.toggle("hidden");
   } catch (error) {
     iziToast.error({
-      title: 'Ой! Помилка!',
+      title: 'Ой! Помилка!  ',
       message: `Щось зломалось під час додавання породи у перелік`,
       position: 'topCenter',
       timeout: 5000,
     });
     console.error('Error populating breed select:', error);
+  } finally {
+    loader.style.display = 'none';
+    breedSelect.style.visibility = 'visible';
   }
 
   breedSelect.addEventListener('change', async event => {
@@ -77,6 +84,7 @@ document.addEventListener('DOMContentLoaded', async () => {
           position: 'topCenter',
           timeout: 5000,
         });
+        loader.style.display = 'none';
       }
     } catch (error) {
       console.error('Error fetching cat data:', error);
